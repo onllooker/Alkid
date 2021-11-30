@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <script type="text/javascript" src="./algebra-0.2.6.min.js"> </script> -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" , initial-scale=1.0" />
+    <title>Alkid calculator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <p>
+      In this window you can select the method of recipe calculation you are
+      interested in.
+    </p>
+    <p>Based on:</p>
+
+    <div class="tab">
+      <button class="tablinks" onclick="openMethod(event, 'AverFunc')">
+        Average functionality
+      </button>
+      <button class="tablinks" onclick="openMethod(event, 'InterProb')">
+        Interaction probabilities of functional groups
+      </button>
+      <button class="tablinks" onclick="openMethod(event, 'AverMolarMass')">
+        Average molar mass
+      </button>
+      <button class="tablinks" onclick="openMethod(event, 'AcidNumGel')">
+        Acid number gelation
+      </button>
+      <button
+        class="tablinks"
+        onclick="openMethod(event, 'AcidNum')"
+        id="defaultOpen"
+      >
+        Acid number counter
+      </button>
+      <button class="tablinks" onclick="openMethod(event, 'Info')">Info</button>
+    </div>
+    <div id="AverFunc" class="tabcontent">
+      <h3>Average functionality method</h3>
+      <p>
+        The calculation method based on the average functionality
+        (F<sub>av</sub>), the simplest and most versatile, is intended for
+        calculating the formulations of alkyd resins of all types.
+      </p>
+    </div>
+
+    <div id="InterProb" class="tabcontent">
+      <h3>Interaction probabilities method</h3>
+      <p>
+        The calculation method based on the probability of interaction of
+        functional groups p (the method of the probability of interaction of
+        polyfunctional molecules) is quite simple in most cases, it is usually
+        used to develop formulations of three- and four-component alkyds.
+      </p>
+    </div>
+
+    <div id="AverMolarMass" class="tabcontent">
+      <h3>Average molar mass method</h3>
+      <p>
+        Calculation method based on the determination of the average molecular
+        weight Mav. complicated, since the methods for determining the molecular
+        weight are laborious and time-consuming. To simplify the calculation,
+        approximate values ​​of some values ​​are taken, for example, the
+        average molecular weight of the alkyd at the time of gelation is taken
+        to be 3000. This method is mainly used for the theoretical calculation
+        of the average molecular weight of the alkyd at the time of gelation
+        according to the known composition and acid number.
+      </p>
+    </div>
+
+    <div id="AcidNumGel" class="tabcontent">
+      <h3>Acid number gelation method</h3>
+      <p>
+        The calculation method based on the acid number at the time of gelation,
+        A.N.<sub> g</sub>, is laborious, with the exception of determining the
+        acid number for alkyd with a known recipe. But the calculation is
+        greatly simplified if we take the value of the acid number at the time
+        of gelation, equal to zero. (A.N.<sub> g</sub> = 0). This method is
+        strictly applicable for calculating the formulations of alkyds,
+        glycerin. For the rest of the trihydric alcohols, it is approximate.
+      </p>
+    </div>
+
+    <div id="AcidNum" class="tabcontent">
+      <h3>Acid number counter</h3>
+      <p>
+        The acid number characterizes the completeness of the polyesterification
+        reaction, determined by the number of milligrams of KOH required to
+        neutralize 1 g of the non-volatile part of the alkyd.
+      </p>
+      <hr />
+      <form class="input-form">
+        <label class="label"
+          ><span class="input-text" title="Mass parts of acid/anhydride"
+            >W<sub>aci</sub></span
+          >
+          <input type="number" class="input" id="Wacid" />
+          <p>m.p.</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Мass parts of polyol"
+            >W<sub>hyd</sub></span
+          >
+          <input type="number" class="input" id="Whyd" />
+          <p>m.p.</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Mass parts of oil"
+            >W<sub>oil</sub></span
+          >
+          <input type="number" class="input" id="Woil" />
+          <p>m.p.</p>
+        </label>
+
+        <label class="label"
+          ><span class="title-result" title="Mass parts of dry alkid"
+            >W<sub>dry</sub></span
+          >
+          <p class="mpWdry">m.p.</p>
+        </label>
+      </form>
+      <hr align="left" width="350" />
+      <form class="input-form">
+        <label class="label"
+          ><span class="input-text" title="Equivalent factor of acid/anhydride"
+            >f<sub>acid</sub></span
+          >
+          <input type="number" class="input" id="facid" />
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Equivalent factor of polyol"
+            >f<sub>hyd</sub></span
+          >
+          <input type="number" class="input" id="fhyd" />
+        </label>
+      </form>
+      <hr align="left" width="350" />
+      <form class="input-form">
+        <label class="label"
+          ><span class="input-text" title="Mass parts of acid/anhydride"
+            >M<sub>aci</sub></span
+          >
+          <input type="number" class="input" id="Macid" />
+          <p>g/mol</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Мass parts of polyol"
+            >M<sub>hyd</sub></span
+          >
+          <input type="number" class="input" id="" />
+          <p>g/mol</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Mass parts of oil"
+            >M<sub>oil</sub></span
+          >
+          <input type="number" class="input" id="" />
+          <p>g/mol</p>
+        </label>
+      </form>
+      <hr align="left" width="350" />
+      <form class="input-form">
+        <label class="label"
+          ><span class="input-text" title="Mass parts of acid/anhydride"
+            >M<sub>aci</sub></span
+          >
+          <input type="number" class="input" id="" />
+          <p>g/mol</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Мass parts of polyol"
+            >M<sub>hyd</sub></span
+          >
+          <input type="number" class="input" id="" />
+          <p>g/mol</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Mass parts of oil"
+            >M<sub>oil</sub></span
+          >
+          <input type="number" class="input" id="" />
+          <p>g/mol</p>
+        </label>
+      </form>
+    </div>
+    <div id="Info" class="tabcontent">
+      <h3>Info</h3>
+      <p></p>
+    </div>
+    <script defer type="module" src="./renderer.js"></script>
+    <script>
+      function openMethod(evt, MethodName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(MethodName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>

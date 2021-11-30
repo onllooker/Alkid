@@ -1,0 +1,17 @@
+{
+  "name": "Chemistry",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/onllooker/Alkid.git",
+  "author": "<isamo.agverdiev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^16.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
