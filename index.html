@@ -7,6 +7,13 @@
     <meta name="viewport" , initial-scale=1.0" />
     <title>Alkid calculator</title>
     <link rel="stylesheet" href="./styles.css" />
+    <style>
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    }
+</style>
   </head>
   <body>
     <p>
@@ -14,7 +21,7 @@
       interested in.
     </p>
     <p>Based on:</p>
-
+<div class = 'sticky'>
     <div class="tab">
       <button class="tablinks" onclick="openMethod(event, 'AverFunc')">
         Average functionality
@@ -38,6 +45,7 @@
        <div class = 'info'>
       <button class="tablinks" onclick="openMethod(event, 'Info')">Info</button>
     </div>
+  </div>
     </div>
    
    
