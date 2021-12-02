@@ -16,39 +16,36 @@ div.sticky {
 </style>
   </head>
   <body>
-    <p>
-      In this window you can select the method of recipe calculation you are
-      interested in.
-    </p>
+    <p>In this window you can select the method of recipe calculation you are
+      interested in.</p>
     <p>Based on:</p>
-<div class = 'sticky'>
-    <div class="tab">
-      <button class="tablinks" onclick="openMethod(event, 'AverFunc')">
-        Average functionality
-      </button>
-      <button class="tablinks" onclick="openMethod(event, 'InterProb')">
-        Interaction probabilities of functional groups
-      </button>
-      <button class="tablinks" onclick="openMethod(event, 'AverMolarMass')">
-        Average molar mass
-      </button>
-      <button class="tablinks" onclick="openMethod(event, 'AcidNumGel')">
-        Acid number gelation
-      </button>
-      <button
-        class="tablinks"
-        onclick="openMethod(event, 'AcidNum')"
-        id="defaultOpen"
-      >
-        Acid number counter
-      </button>
-       <div class = 'info'>
-      <button class="tablinks" onclick="openMethod(event, 'Info')">Info</button>
+    <div class = 'sticky'>
+      <div class="tab">
+        <button class="tablinks" onclick="openMethod(event, 'AverFunc')">
+          Average functionality
+        </button>
+        <button class="tablinks" onclick="openMethod(event, 'InterProb')">
+          Interaction probabilities of functional groups
+        </button>
+        <button class="tablinks" onclick="openMethod(event, 'AverMolarMass')">
+          Average molar mass
+        </button>
+        <button class="tablinks" onclick="openMethod(event, 'AcidNumGel')">
+          Acid number gelation
+        </button>
+        <button
+          class="tablinks"
+          onclick="openMethod(event, 'AcidNum')"
+          id="defaultOpen"
+        >
+          Acid number counter
+        </button>
+        <div class = 'info'>
+          <button class="tablinks" onclick="openMethod(event, 'Info')">Info</button>
+        </div>
+      </div>
     </div>
-  </div>
-    </div>
-   
-   
+    <form class="input-form">
     <div id="AverFunc" class="tabcontent">
       <h3>Average functionality method</h3>
       <p>
@@ -57,8 +54,8 @@ div.sticky {
         calculating the formulations of alkyd resins of all types.
       </p>
     </div>
-
-    <div id="InterProb" class="tabcontent">
+    <div>
+      <div id="InterProb" class="tabcontent">
       <h3>Interaction probabilities method</h3>
       <p>
         The calculation method based on the probability of interaction of
@@ -66,9 +63,9 @@ div.sticky {
         polyfunctional molecules) is quite simple in most cases, it is usually
         used to develop formulations of three- and four-component alkyds.
       </p>
-    </div>
+      </div>
 
-    <div id="AverMolarMass" class="tabcontent">
+      <div id="AverMolarMass" class="tabcontent">
       <h3>Average molar mass method</h3>
       <p>
         Calculation method based on the determination of the average molecular
@@ -80,9 +77,9 @@ div.sticky {
         of the average molecular weight of the alkyd at the time of gelation
         according to the known composition and acid number.
       </p>
-    </div>
+      </div>
 
-    <div id="AcidNumGel" class="tabcontent">
+      <div id="AcidNumGel" class="tabcontent">
       <h3>Acid number gelation method</h3>
       <p>
         The calculation method based on the acid number at the time of gelation,
@@ -93,9 +90,9 @@ div.sticky {
         strictly applicable for calculating the formulations of alkyds,
         glycerin. For the rest of the trihydric alcohols, it is approximate.
       </p>
-    </div>
+      </div>
 
-    <div id="AcidNum" class="tabcontent">
+      <div id="AcidNum" class="tabcontent">
       <h3>Acid number counter</h3>
       <p>
         The acid number characterizes the completeness of the polyesterification
@@ -103,20 +100,14 @@ div.sticky {
         neutralize 1 g of the non-volatile part of the alkyd.
       </p>
       <hr />
+
+      <div class="item">
       <form class="input-form">
         <label class="label"
           ><span class="input-text" title="Mass parts of acid/anhydride"
             >W<sub>aci</sub></span
           >
-          <input type="number" class="input" id="Wacid" />
-          <p>m.p.</p>
-        </label>
-
-        <label class="label"
-          ><span class="input-text" title="Мass parts of polyol"
-            >W<sub>hyd</sub></span
-          >
-          <input type="number" class="input" id="Whyd" />
+          <input type="number" class="input" id="Wacid"/>
           <p>m.p.</p>
         </label>
 
@@ -129,13 +120,56 @@ div.sticky {
         </label>
 
         <label class="label"
-          ><span class="title-result" title="Mass parts of dry alkid"
+          ><span class="input-text" title="Мass parts of polyol"
+            >W<sub>hyd</sub></span
+          >
+          <input type="number" class="input" id="Whyd" />
+          <p>m.p.</p>
+        </label>
+
+        <label class="label"
+          ><span class="input-text" title="Mass parts of dry alkid"
             >W<sub>dry</sub></span
           >
-          <p class="mpWdry">m.p.</p>
+          <div class="input-result" id = 'Wd' ></div>
+          <p>m.p.</p>
         </label>
-      </form>
-      <hr align="left" width="350" />
+        </form>
+        <hr align="left" width="350" />
+        </div>
+       
+        
+      <div class = 'item'>
+        <form class="input-form">
+          <label class="label"
+            ><span class="input-text" title="Mass parts of acid/anhydride"
+              >M<sub>aci</sub></span
+            >
+            <input type="number" class="input" id="Macid" />
+            <p>g/mol</p>
+          </label>
+
+          <label class="label"
+            ><span class="input-text" title="Мass parts of polyol"
+              >M<sub>hyd</sub></span
+            >
+            <input type="number" class="input" id="Mhyd" />
+            <p>g/mol</p>
+          </label>
+
+          <label class="label"
+            ><span class="input-text" title="Mass parts of oil"
+              >M<sub>oil</sub></span
+            >
+            <input type="number" class="input" id="Moil" />
+            <p>g/mol</p>
+          </label>
+        </form>
+      <hr align="left" width="350"/>
+      </div>
+
+
+      <div class="item">
       <form class="input-form">
         <label class="label"
           ><span class="input-text" title="Equivalent factor of acid/anhydride"
@@ -152,38 +186,64 @@ div.sticky {
         </label>
       </form>
       <hr align="left" width="350" />
-      <div class = 'Maci'>
-      <form class="input-form">
-        <label class="label"
-          ><span class="input-text" title="Mass parts of acid/anhydride"
-            >M<sub>aci</sub></span
-          >
-          <input type="number" class="input" id="Macid" />
-          <p>g/mol</p>
-        </label>
-
-        <label class="label"
-          ><span class="input-text" title="Мass parts of polyol"
-            >M<sub>hyd</sub></span
-          >
-          <input type="number" class="input" id="" />
-          <p>g/mol</p>
-        </label>
-
-        <label class="label"
-          ><span class="input-text" title="Mass parts of oil"
-            >M<sub>oil</sub></span
-          >
-          <input type="number" class="input" id="" />
-          <p>g/mol</p>
-        </label>
-      </form>
-      <hr align="left" width="350" />
-      </div>
-      </label>
-      </form>
     </div>
-    <div id="Info" class="tabcontent">
+
+    <label class="label">
+      <input type="button" class="tablinks" id="btn-calculate" value="Calculate">
+      </label>
+      <div class="AcNumTable">
+        <div class="table">
+          <table>
+            <thead>
+          <tr>
+            <th>Name</th>
+            <th>W, m.p.</th>
+            <th>E, g/mol*equ</th>
+            <th>eacid, equ.mol</th>
+            <th>ehyd, equ.mol</th>
+            <th>m, mol</th>
+          </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td><input class="tableinput" type="text"></td>
+                <td id="Wa"></td>
+                <td id="Ea"></td>
+                <td id="ea"></td>
+                <td>-</td>
+                <td id="ma"></td>
+              </tr>
+              <tr>
+                <td><input class = 'tableinput' type="text"></td>
+                <td id="Wo"></td>
+                <td id="Eo"></td>
+                <td id="eo"></td>
+                <td>-</td>
+                <td id="mo"></td>
+              </tr>
+              <tr>
+                <td><input class = 'tableinput' type="text"></td>
+                <td id="Wh"></td>
+                <td id ='Eh'></td>
+                <td>-</td>
+                <td id="eh"></td>
+                <td id="mh"></td>
+              </tr>
+              <tr>
+                <td>Summ</td>
+                <td id="sumW"></td>
+                <td id="sumE"></td>
+                <td id="sumea"></td>
+                <td id="sumeh"></td>
+                <td id="summ"></td>
+              </tr>            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+      </div>
+      <div id="Info" class="tabcontent">
       <h1>Info</h1>
       <div class="infotxt">
         <h2>Алкидные смолы как модифицированные полиэфиры</h2=>
@@ -247,8 +307,9 @@ div.sticky {
 оформление.
 </p>
       </div>
+      </div>
     </div>
-    <script defer type="module" src="./renderer.js"></script>
+    <script type="module" src="render.js"></script>
     <script>
       function openMethod(evt, MethodName) {
         let i, tabcontent, tablinks;
